@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Kommentar">
+   <children>
+      <Button fx:id="commentButton" layoutX="14.0" layoutY="226.0" mnemonicParsing="false" onAction="#commentSend" text="Submit" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="226.0" />
+      <TextArea layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="573.0" promptText="Kommentar" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+   </children>
+</AnchorPane>
