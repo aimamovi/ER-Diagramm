@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaFX-Template.iml" filepath="$PROJECT_DIR$/JavaFX-Template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ticket_System_Git.iml" filepath="$PROJECT_DIR$/Ticket_System_Git.iml" />
     </modules>
   </component>
 </project>
