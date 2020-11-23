@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller">
+   <children>
+      <Button fx:id="ButtonDepartments" layoutX="29.0" layoutY="35.0" mnemonicParsing="false" onAction="#ButtonClickDepartments" prefHeight="90.0" prefWidth="103.0" text="Departments" />
+      <Button fx:id="ButtonUser" layoutX="143.0" layoutY="35.0" mnemonicParsing="false" onAction="#ButtonClickUser" prefHeight="90.0" prefWidth="103.0" text="User" />
+      <Button fx:id="ButtonComments" layoutX="29.0" layoutY="141.0" mnemonicParsing="false" onAction="#ButtonClickComments" prefHeight="90.0" prefWidth="103.0" text="Comments" />
+      <Button fx:id="ButtonPriorities" layoutX="143.0" layoutY="141.0" mnemonicParsing="false" onAction="#ButtonClickPriorities" prefHeight="90.0" prefWidth="103.0" text="Priorities" />
+      <Button fx:id="ButtonTickets" layoutX="29.0" layoutY="243.0" mnemonicParsing="false" onAction="#ButtonClickTickets" prefHeight="90.0" prefWidth="103.0" text="Tickets" />
+      <Button fx:id="ButtonStati" layoutX="143.0" layoutY="243.0" mnemonicParsing="false" onAction="#ButtonClickStati" prefHeight="90.0" prefWidth="103.0" text="Stati" />
+      <Button fx:id="ButtonOrders" layoutX="257.0" layoutY="141.0" mnemonicParsing="false" onAction="#ButtonClickOrders" prefHeight="90.0" prefWidth="103.0" text="Orders" />
+   </children>
+</AnchorPane>

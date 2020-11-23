@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="255.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="otherFXMLs_with_controllers.User_Controller">
+<AnchorPane prefHeight="255.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.User_Controller">
     <TextField layoutX="116.0" layoutY="14.0" prefHeight="17.0" prefWidth="267.0" />
 
     <Button layoutX="229.0" layoutY="216.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="70.0" text="Speichern" />

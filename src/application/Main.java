@@ -1,17 +1,10 @@
+package application;
+
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import org.w3c.dom.Node;
-
-import javax.naming.ldap.Control;
-import java.beans.EventHandler;
-import java.io.File;
-import java.io.IOException;
 
 public class Main extends Application {
 
@@ -31,7 +24,7 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/scene.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

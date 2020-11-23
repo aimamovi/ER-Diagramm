@@ -1,4 +1,4 @@
-package otherFXMLs_with_controllers;
+package application.controller;
 
 public class Priorities_Controller {
 }
