@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.MyFXMLLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,16 @@ public class Controller {
     public Button ButtonStati;
     public Button ButtonOrders;
 
+    public void editStatiClicked(ActionEvent actionEvent) {
+        MyFXMLLoader loader = new MyFXMLLoader();
+        loader.loadFXML("view/stati.fxml", "Stati bearbeiten");
+    }
+
+    public void editPrioritesClicked(ActionEvent actionEvent) {
+        MyFXMLLoader loader = new MyFXMLLoader();
+        loader.loadFXML("view/priorities.fxml", "Prioritäten bearbeiten");
+    }
+/*
     public void ButtonClickDepartments(ActionEvent actionEvent) {
 
         Parent root;
@@ -112,7 +123,9 @@ public class Controller {
             e.printStackTrace();
         }
     }
+*/
 }
+
 /**
  * Copyright © 2020 ArminDevelopments Inc. | All rights reserved. Terms of Use | Privacy Policy |
  * 1-111-Austria (1-111-111-1111)
