@@ -24,7 +24,7 @@ public class Controller {
 
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/departments.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/departments.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Departments");
             stage.setScene(new Scene(root));
@@ -38,7 +38,7 @@ public class Controller {
     public void ButtonClickUser(ActionEvent actionEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/user.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/user.fxml"));
             Stage stage = new Stage();
             stage.setTitle("User");
             stage.setScene(new Scene(root));
@@ -51,7 +51,7 @@ public class Controller {
     public void ButtonClickComments(ActionEvent actionEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/comments.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/comments.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Comments");
             stage.setScene(new Scene(root));
@@ -64,7 +64,7 @@ public class Controller {
     public void ButtonClickPriorities(ActionEvent actionEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/priorities.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/priorities.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Priorities");
             stage.setScene(new Scene(root));
@@ -77,7 +77,7 @@ public class Controller {
     public void ButtonClickTickets(ActionEvent actionEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/tickets.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/tickets.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Tickets");
             stage.setScene(new Scene(root));
@@ -90,7 +90,7 @@ public class Controller {
     public void ButtonClickStati(ActionEvent actionEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/stati.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/stati.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Stati");
             stage.setScene(new Scene(root));
@@ -103,7 +103,7 @@ public class Controller {
     public void ButtonClickOrders(ActionEvent actionEvent) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("view/orders.fxml"));
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("application/view/orders.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Orders");
             stage.setScene(new Scene(root));
