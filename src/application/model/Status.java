@@ -1,6 +1,6 @@
 package application.model;
 
-public class ToString{
+public class Status {
 
     public int valueINT;
     public String valueSTRING = "";

@@ -8,10 +8,10 @@
 
 <AnchorPane prefHeight="200.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Stati_Controller">
 
-    <TextField fx:id="textFieldStati" layoutX="74.0" layoutY="23.0" prefHeight="17.0" prefWidth="247.0" promptText="name" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="23.0" />
+    <TextField fx:id="textFieldStati" layoutX="236.0" layoutY="15.0" prefHeight="25.0" prefWidth="125.0" promptText="name" AnchorPane.leftAnchor="236.0" AnchorPane.topAnchor="15.0" />
     <Button fx:id="saveStati" layoutX="191.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Speichern" AnchorPane.bottomAnchor="15.666666666666657" AnchorPane.leftAnchor="191.0" />
     <Button fx:id="cancelStati" layoutX="281.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Abbrechen" AnchorPane.bottomAnchor="14.666666666666657" AnchorPane.rightAnchor="20.0" />
-   <Label layoutX="32.0" layoutY="27.0" text="Status:" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="27.0" />
-   <ListView fx:id="listViewStati" layoutX="32.0" layoutY="74.0" prefHeight="109.0" prefWidth="137.0" />
+   <Label layoutX="191.0" layoutY="19.0" text="Status:" AnchorPane.leftAnchor="191.0" AnchorPane.topAnchor="19.0" />
+   <ListView fx:id="listViewStati" layoutX="11.0" layoutY="9.0" prefHeight="182.0" prefWidth="164.0" />
 
 </AnchorPane>

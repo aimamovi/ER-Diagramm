@@ -1,6 +1,6 @@
 package application.controller;
 
-import application.model.ToString;
+import application.model.Priorities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -12,25 +12,26 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Priorities_Controller {
-    public ListView<ToString> priorityListView;
+    public ListView<Priorities> priorityListView;
     public Button cancel;
     public Button save;
 
-    public static final ObservableList<ToString> dataObeservable =
+    public static final ObservableList<Priorities> dataObeservable =
             FXCollections.observableArrayList();
 
     public File datei = new File("priorities.csv");
 
     public void initialize() {
 
-        String row;
+        String row = "";
         BufferedReader br = null;
         try {
+
             br = new BufferedReader(new FileReader(datei));
             try {
                 while ((row = br.readLine()) != null) {
                     String[] data = row.split(";");
-                    ToString a = new ToString();
+                    Priorities a = new Priorities();
 
                     a.valueINT = Integer.parseInt(data[0]);
                     a.valueSTRING = data[1];
