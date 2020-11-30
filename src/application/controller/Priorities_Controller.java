@@ -23,6 +23,10 @@ public class Priorities_Controller {
 
     public void initialize() {
 
+        //@todo hier und in Stati_Controller.java gibt es einen Bug
+        //wenn das Fenster geschlossen wird und wieder geöffnet dann zeigt es doppelt in der Liste
+        //an. Ka warum. Initialize wird jedoch aufgerufen somit ye idk
+
         String row = "";
         BufferedReader br = null;
         try {
