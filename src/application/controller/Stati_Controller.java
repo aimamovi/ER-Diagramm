@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.model.Priorities;
+import application.model.Status;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,10 +19,9 @@ import java.io.IOException;
 public class Stati_Controller {
     public Button saveStati;
     public Button cancelStati;
-    public ListView<Priorities> listViewStati;
-    public TextField textFieldStati;
+    public ListView<Status> listViewStati;
 
-    public static final ObservableList<Priorities> dataObeservable =
+    public static final ObservableList<Status> dataObeservable =
             FXCollections.observableArrayList();
 
     public File datei = new File("stati.csv");
@@ -37,7 +37,7 @@ public class Stati_Controller {
             try {
                 while ((row = br.readLine()) != null) {
                     String[] data = row.split(";");
-                    Priorities b = new Priorities();
+                    Status b = new Status();
 
                     b.valueINT = Integer.parseInt(data[0]);
                     b.valueSTRING = data[1];

@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="200.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Stati_Controller">
-
-    <TextField fx:id="textFieldStati" layoutX="236.0" layoutY="15.0" prefHeight="25.0" prefWidth="125.0" promptText="name" AnchorPane.leftAnchor="236.0" AnchorPane.topAnchor="15.0" />
-    <Button fx:id="saveStati" layoutX="191.0" layoutY="159.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="70.0" text="Speichern" AnchorPane.bottomAnchor="15.666666666666657" AnchorPane.leftAnchor="191.0" />
-    <Button fx:id="cancelStati" layoutX="281.0" layoutY="160.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="80.0" text="Abbrechen" AnchorPane.bottomAnchor="14.666666666666657" AnchorPane.rightAnchor="20.0" />
-   <Label layoutX="191.0" layoutY="19.0" text="Status:" AnchorPane.leftAnchor="191.0" AnchorPane.topAnchor="19.0" />
+<AnchorPane prefHeight="236.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Stati_Controller">
+    <Button fx:id="saveStati" layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveButtonClicked" prefHeight="25.0" prefWidth="69.0" text="Speichern" AnchorPane.leftAnchor="14.0" />
+    <Button fx:id="cancelStati" layoutX="93.0" layoutY="200.0" mnemonicParsing="false" onAction="#cancelButtonClicked" prefHeight="25.0" prefWidth="77.0" text="Abbrechen" AnchorPane.leftAnchor="93.0" />
    <ListView fx:id="listViewStati" layoutX="11.0" layoutY="9.0" prefHeight="182.0" prefWidth="164.0" />
 
 </AnchorPane>

@@ -26,6 +26,16 @@
                       <MenuItem mnemonicParsing="false" onAction="#editPrioritesClicked" text="bearbeiten" />
                     </items>
                   </Menu>
+                  <Menu mnemonicParsing="false" text="Departments">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#editDepartmentsClicked" text="bearbeiten" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Users">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#editUsersClicked" text="bearbeiten" />
+                     </items>
+                  </Menu>
             </items>
           </Menu>
         </menus>
