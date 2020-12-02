@@ -19,7 +19,7 @@ public class User_Controller {
 
     public Button save;
     public Button cancel;
-    
+
     public static final ObservableList<User> dataObeservable =
             FXCollections.observableArrayList();
 
