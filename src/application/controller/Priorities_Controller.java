@@ -58,4 +58,7 @@ public class Priorities_Controller {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
     }
+
+    public void saveButtonClicked(ActionEvent actionEvent) {
+    }
 }
