@@ -1,11 +1,14 @@
 package application.controller;
 
 import application.model.Priorities;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,6 +27,8 @@ public class Stati_Controller {
     public File datei = new File("stati.csv");
 
     public void initialize() {
+
+        dataObeservable.clear();
 
         String row;
         BufferedReader br = null;
@@ -51,4 +56,12 @@ public class Stati_Controller {
     }
 
 
+    public void saveButtonClicked(ActionEvent actionEvent) {
+
+    }
+
+    public void cancelButtonClicked(ActionEvent actionEvent) {
+        Stage stage = (Stage) cancelStati.getScene().getWindow();
+        stage.close();
+    }
 }

@@ -3,8 +3,10 @@ package application.controller;
 import application.model.Priorities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,9 +25,7 @@ public class Priorities_Controller {
 
     public void initialize() {
 
-        //@todo hier und in Stati_Controller.java gibt es einen Bug
-        //wenn das Fenster geschlossen wird und wieder geöffnet dann zeigt es doppelt in der Liste
-        //an. Ka warum. Initialize wird jedoch aufgerufen somit ye idk
+        dataObeservable.clear();
 
         String row = "";
         BufferedReader br = null;
@@ -54,4 +54,8 @@ public class Priorities_Controller {
     }
 
 
+    public void cancelButtonClicked(ActionEvent actionEvent) {
+        Stage stage = (Stage) cancel.getScene().getWindow();
+        stage.close();
+    }
 }
