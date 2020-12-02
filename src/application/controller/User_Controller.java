@@ -19,10 +19,7 @@ public class User_Controller {
 
     public Button save;
     public Button cancel;
-
-    //@todo Es gibt einen bug das das hier ned geöffnet wird aus keine ahnung welchen grund
-    //maybe weil es das 4te ist und fxml loaden ab 3 komisch wird? idk.
-
+    
     public static final ObservableList<User> dataObeservable =
             FXCollections.observableArrayList();
 
