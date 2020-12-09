@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.model.Department;
 import application.model.Priorities;
 import application.model.Status;
 import javafx.application.Platform;
@@ -21,40 +22,12 @@ public class Stati_Controller {
     public Button cancelStati;
     public ListView<Status> listViewStati;
 
-    public static final ObservableList<Status> dataObeservable =
-            FXCollections.observableArrayList();
-
     public File datei = new File("stati.csv");
 
     public void initialize() {
+        listViewStati.setItems(Status.loadFile(datei));
 
-        dataObeservable.clear();
-
-        String row;
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(datei));
-            try {
-                while ((row = br.readLine()) != null) {
-                    String[] data = row.split(";");
-                    Status b = new Status();
-
-                    b.valueINT = Integer.parseInt(data[0]);
-                    b.valueSTRING = data[1];
-                    dataObeservable.add(b);
-                }
-            } finally {
-                if (br != null) {
-                    br.close();
-                }
-            }
-        } catch (IOException io) {
-            System.out.println(io.getMessage());
-        }
-
-        listViewStati.setItems(dataObeservable);
     }
-
 
     public void saveButtonClicked(ActionEvent actionEvent) {
 

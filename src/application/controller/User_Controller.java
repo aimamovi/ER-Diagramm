@@ -20,44 +20,10 @@ public class User_Controller {
     public Button save;
     public Button cancel;
 
-    public static final ObservableList<User> dataObeservable =
-            FXCollections.observableArrayList();
-
     public File datei = new File("users.csv");
 
     public void initialize() {
-
-        dataObeservable.clear();
-
-        String row;
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(datei));
-            try {
-                while ((row = br.readLine()) != null) {
-                    String[] data = row.split(";");
-                    User b = new User();
-
-                    b.valueINT = Integer.parseInt(data[0]);
-                    b.titel = data[1];
-                    b.name = data[2];
-                    b.strase = data[3];
-                    b.plz = Integer.parseInt(data[4]);
-                    b.ort = data[5];
-                    b.abteilung = Integer.parseInt(data[6]);
-
-                    dataObeservable.add(b);
-                }
-            } finally {
-                if (br != null) {
-                    br.close();
-                }
-            }
-        } catch (IOException io) {
-            System.out.println(io.getMessage());
-        }
-
-        listViewUser.setItems(dataObeservable);
+        listViewUser.setItems(User.loadFile(datei));
     }
 
     public void saveClicked(ActionEvent actionEvent) {

@@ -22,40 +22,11 @@ public class Departments_Controller {
     public Button cancel;
     public ListView<Department> listViewDepartments;
 
-    public static final ObservableList<Department> dataObeservable =
-            FXCollections.observableArrayList();
-
     public File datei = new File("departments.csv");
 
     public void initialize() {
-
-        dataObeservable.clear();
-
-        String row;
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(datei));
-            try {
-                while ((row = br.readLine()) != null) {
-                    String[] data = row.split(";");
-                    Department b = new Department();
-
-                    b.valueINT = Integer.parseInt(data[0]);
-                    b.valueSTRING = data[1];
-                    dataObeservable.add(b);
-                }
-            } finally {
-                if (br != null) {
-                    br.close();
-                }
-            }
-        } catch (IOException io) {
-            System.out.println(io.getMessage());
-        }
-
-        listViewDepartments.setItems(dataObeservable);
+        listViewDepartments.setItems(Department.loadFile(datei));
     }
-
 
     public void saveButtonClicked(ActionEvent actionEvent) {
 
