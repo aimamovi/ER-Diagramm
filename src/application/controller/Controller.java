@@ -39,7 +39,7 @@ public class Controller {
 
     public void ticket_listViewClicked(MouseEvent mouseEvent) {
         MyFXMLLoader loader = new MyFXMLLoader();
-        Parent root = loader.loadFXML("view/ticket.fxml");
+        Parent root = loader.loadFXML("view/tickets.fxml");
         contentPane.getChildren().add(root);
 
         Tickets_Controller controller = (Tickets_Controller) loader.getController();
