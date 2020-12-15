@@ -16,6 +16,9 @@ public class Controller {
 
     public ListView ticketListView;
     public AnchorPane contentPane;
+    public TextField filterNameTxtFlied;//filtern nach Name des todos
+    public ComboBox fitlerStatusComboBox;//filtern nach Status
+    public ComboBox filterPriorityComboBox;//filtern nach Priorität
 
     public void editStatiClicked(ActionEvent actionEvent) {
         MyFXMLLoader loader = new MyFXMLLoader();
