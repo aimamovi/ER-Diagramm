@@ -47,6 +47,19 @@ public class Controller {
 
         Tickets_Controller controller = (Tickets_Controller) loader.getController();
     }
+
+    public void newClicked(ActionEvent actionEvent) {
+        MyFXMLLoader loader = new MyFXMLLoader();
+        Parent root = loader.loadFXML("view/ticket.fxml");
+        AnchorPane.setBottomAnchor(root, 0.0);
+        AnchorPane.setTopAnchor(root, 0.0);
+        AnchorPane.setLeftAnchor(root, 0.0);
+        AnchorPane.setRightAnchor(root, 0.0);
+        contentPane.getChildren().add(root);
+
+        Tickets_Controller controller = (Tickets_Controller) loader.getController();
+        controller.(null);
+    }
 }
 
 /**
