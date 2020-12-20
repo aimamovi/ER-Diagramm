@@ -12,14 +12,17 @@ public class Ticket {
 
 
     public int valueINT;
-    public String valueSTRING = "";
+    public String name = "";
+    public String description = "";
+    public int status;
+    public int priority;
 
     public static final ObservableList<Ticket> dataObeservable =
             FXCollections.observableArrayList();
 
     @Override
     public String toString() {
-        return valueINT + " - " + valueSTRING;
+        return valueINT + " - " + name;
     }
 
     public static ObservableList<Ticket> loadFile(File datei) {
@@ -33,15 +36,14 @@ public class Ticket {
             try {
                 while ((row = br.readLine()) != null) {
                     String[] data = row.split(";");
-                    Status b = new Status();
+                    Ticket b = new Ticket();
 
                     b.valueINT = Integer.parseInt(data[0]);
-                    b.valueSTRING = data[1];
-                   // dataObeservable.add(b);
-
-
-
-
+                    b.name = data[1];
+                    b.description = data[2];
+                    b.status = Integer.parseInt(data[3]);
+                    b.priority = Integer.parseInt(data[4]);
+                    dataObeservable.add(b);
                 }
             } finally {
                 if (br != null) {
