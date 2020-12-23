@@ -28,7 +28,7 @@ public class Departments_Controller {
     public static ObservableList<Department> dataObeservable =
             FXCollections.observableArrayList();
 
-    public static String getValueString(int valueInt){
+    public static String getValueString(int valueInt) {
         dataObeservable.setAll(Department.loadFile(new File("departments.csv")));
 
         return dataObeservable.get(valueInt - 1).valueSTRING;

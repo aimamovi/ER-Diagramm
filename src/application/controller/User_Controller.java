@@ -67,9 +67,5 @@ public class User_Controller {
         ortTxtField.setText(selected.ort);
         //countryTxtField.setText();    land gibts nu ned bruuh
 
-
-
-
-
     }
 }
