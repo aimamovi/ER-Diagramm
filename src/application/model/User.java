@@ -1,5 +1,7 @@
 package application.model;
 
+import application.controller.Departments_Controller;
+import application.controller.User_Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,7 +17,7 @@ public class User {
     public String strase = "";
     public int plz;
     public String ort = "";
-    public int abteilung;
+    public Department abteilung = new Department();
 
     public static final ObservableList<User> dataObeservable =
             FXCollections.observableArrayList();
@@ -44,7 +46,8 @@ public class User {
                     b.strase = data[3];
                     b.plz = Integer.parseInt(data[4]);
                     b.ort = data[5];
-                    b.abteilung = Integer.parseInt(data[6]);
+                    b.abteilung.valueINT = Integer.parseInt(data[6]);
+                    b.abteilung.valueSTRING = Departments_Controller.getValueString(b.abteilung.valueINT);
 
                     dataObeservable.add(b);
                 }

@@ -1,12 +1,9 @@
 package application.controller;
 
 import application.MyFXMLLoader;
-import application.model.Status;
+import application.model.Priorities;
 import application.model.Ticket;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -21,15 +18,14 @@ public class Controller {
     public TextField filterNameTxtFlied;//filtern nach Name des todos
     public ComboBox fitlerStatusComboBox;//filtern nach Status
     public ComboBox filterPriorityComboBox;//filtern nach Priorität
-    public File datei = new File("tickets.csv");
+    public File ticketdatei = new File("tickets.csv");
     public File statusDatei = new File("stati.csv");
 
-    public static ObservableList<Status> statusdataObeservable =
-            FXCollections.observableArrayList();
+    public boolean newTicket = false;
+    Ticket selected;
 
+    Tickets_Controller tc = new Tickets_Controller();
 
-    public static ObservableList<Ticket> dataObeservable =
-            FXCollections.observableArrayList();
 
     public void editStatiClicked(ActionEvent actionEvent) {
         MyFXMLLoader loader = new MyFXMLLoader();
@@ -52,70 +48,82 @@ public class Controller {
     }
 
     public void initialize() {
-        dataObeservable = Ticket.loadFile(datei);
-        statusdataObeservable = Status.loadFile(statusDatei);
-
-        ticketListView.setItems(dataObeservable);
-
+        Tickets_Controller.dataObeservable = Ticket.loadFile(ticketdatei);
+        ticketListView.setItems(Tickets_Controller.dataObeservable);
     }
 
 
     public void ticket_listViewClicked(MouseEvent mouseEvent) {
 
-        Ticket selected;
         selected = ticketListView.getSelectionModel().getSelectedItem();
-        System.out.println("TEST: du hast auf " + selected.valueINT + selected.name + " geclickt");
-
-        int i = selected.status.valueINT - 1;
-        Status a = statusdataObeservable.get(0);
-        statusdataObeservable.set(0, selected.status);
-        statusdataObeservable.set(i, a);
+        System.out.println("TEST: du hast auf " + selected.valueINT + " - " + selected.name + " geclickt");
 
         MyFXMLLoader loader = new MyFXMLLoader();
         Parent root = loader.loadFXML("view/tickets.fxml");
-        Tickets_Controller tc = (Tickets_Controller) loader.controller;
+        tc = (Tickets_Controller) loader.controller;
         tc.nameTxtField.setText(selected.name);
         tc.descriptionTxtField.setText(selected.description);
-        tc.statusComboBox.setItems(statusdataObeservable);
-
+        tc.statusComboBox.setItems(Stati_Controller.dataObeservable);
+        tc.statusComboBox.setValue(selected.status);
+        tc.priorityComboBox.setItems(Priorities_Controller.dataObeservable);
+        tc.priorityComboBox.setValue(selected.priority);
 
         contentPane.getChildren().add(root);
-
-
-
-
-
-
-
-        /*
-        NummerTxtField.setText(selected.nummer);
-        BeschreibungTxtField.setText(selected.name);
-        LagerTxtFeld.setText(selected.lagerplatz);
-        PreisTxtFeld.setText(Double.toString(selected.preis));
-        indexShown.setText(String.valueOf(selected.index));
-*/
-
-        Tickets_Controller controller = (Tickets_Controller) loader.getController();
     }
 
     public void newClicked(ActionEvent actionEvent) {
 
         MyFXMLLoader loader = new MyFXMLLoader();
         Parent root = loader.loadFXML("view/tickets.fxml");
-        AnchorPane.setBottomAnchor(root, 0.0);
-        AnchorPane.setTopAnchor(root, 0.0);
-        AnchorPane.setLeftAnchor(root, 0.0);
-        AnchorPane.setRightAnchor(root, 0.0);
+        tc = (Tickets_Controller) loader.controller;
         contentPane.getChildren().add(root);
 
-        Tickets_Controller controller = (Tickets_Controller) loader.getController();
-        //controller.(null);
+        tc.statusComboBox.setItems(Stati_Controller.dataObeservable);
+        tc.priorityComboBox.setItems(Priorities_Controller.dataObeservable);
+
+        newTicket = true;
     }
 
     public void deleteClicked(ActionEvent actionEvent) {
+        //@todo bug when zwischendrinnen mehrmals gelöscht wird dan wird mal die liste so klein das hohe values -1 noch immer länger als liste sind
+        /*
+        if(selected.valueINT - 1 != Tickets_Controller.dataObeservable.size()){
+            int i = selected.valueINT;
+            while(i <= Tickets_Controller.dataObeservable.size()){
+                --Tickets_Controller.dataObeservable.get(i).valueINT;
+                ++i;
+            }
+        }
+
+        Tickets_Controller.dataObeservable.remove(selected.valueINT - 1);
+        Ticket.saveTicketsToFile(ticketdatei, Tickets_Controller.dataObeservable);
+*/
     }
 
     public void saveClicked(ActionEvent actionEvent) {
+
+        Ticket mTicket = new Ticket();
+        mTicket.name = tc.nameTxtField.getText();
+        mTicket.description = tc.descriptionTxtField.getText();
+        mTicket.status = tc.statusComboBox.getValue();
+        mTicket.priority = tc.priorityComboBox.getValue();
+
+        if (mTicket.status == null || mTicket.priority == null) {
+            mTicket.status = Stati_Controller.dataObeservable.get(0);
+            mTicket.priority = Priorities_Controller.dataObeservable.get(0);
+        }
+
+        if (newTicket == true) {
+            mTicket.valueINT = Tickets_Controller.dataObeservable.get((Tickets_Controller.dataObeservable.size() - 1)).valueINT + 1;
+            Tickets_Controller.dataObeservable.add(mTicket);
+            newTicket = false;
+        } else {
+            mTicket.valueINT = selected.valueINT;
+            Tickets_Controller.dataObeservable.set(mTicket.valueINT - 1, mTicket);
+        }
+        Ticket.saveTicketsToFile(ticketdatei, Tickets_Controller.dataObeservable);
+
+
     }
 }
 

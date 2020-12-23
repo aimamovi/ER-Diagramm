@@ -28,6 +28,8 @@ public class Stati_Controller {
     public File datei = new File("stati.csv");
 
     public static String getValueString(int valueInt){
+        dataObeservable.setAll(Status.loadFile(new File("stati.csv")));
+
         return dataObeservable.get(valueInt - 1).valueSTRING;
     }
 

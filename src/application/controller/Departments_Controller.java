@@ -3,6 +3,7 @@ package application.controller;
 import application.model.Department;
 import application.model.Priorities;
 import application.model.Status;
+import application.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,8 +25,18 @@ public class Departments_Controller {
 
     public File datei = new File("departments.csv");
 
+    public static ObservableList<Department> dataObeservable =
+            FXCollections.observableArrayList();
+
+    public static String getValueString(int valueInt){
+        dataObeservable.setAll(Department.loadFile(new File("departments.csv")));
+
+        return dataObeservable.get(valueInt - 1).valueSTRING;
+    }
+
     public void initialize() {
-        listViewDepartments.setItems(Department.loadFile(datei));
+        dataObeservable = Department.loadFile(datei);
+        listViewDepartments.setItems(dataObeservable);
     }
 
     public void saveButtonClicked(ActionEvent actionEvent) {

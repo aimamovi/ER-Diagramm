@@ -26,12 +26,13 @@ public class Priorities_Controller {
     public File datei = new File("priorities.csv");
 
     public static String getValueString(int valueInt){
+        dataObeservable.setAll(Priorities.loadFile(new File("priorities.csv")));
         return dataObeservable.get(valueInt - 1).valueSTRING;
     }
 
     public void initialize() {
-        priorityListView.setItems(Priorities.loadFile(datei));
-
+        dataObeservable.setAll(Priorities.loadFile(datei));
+        priorityListView.setItems(dataObeservable);
     }
 
     public void cancelButtonClicked(ActionEvent actionEvent) {

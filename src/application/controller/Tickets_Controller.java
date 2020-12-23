@@ -23,8 +23,12 @@ public class Tickets_Controller {
     public ComboBox<Priorities> priorityComboBox;
     public Button cancelButton;
 
+    public static ObservableList<Ticket> dataObeservable =
+            FXCollections.observableArrayList();
+
+
     public void initialize() {
-        Ticket.loadFile(datei);
+        dataObeservable = Ticket.loadFile(datei);
     }
 
     public void saveTicket(ActionEvent actionEvent) {
