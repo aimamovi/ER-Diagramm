@@ -2,6 +2,7 @@ package application.controller;
 
 import application.model.Department;
 import application.model.Priorities;
+import application.model.Status;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +20,14 @@ public class Priorities_Controller {
     public Button cancel;
     public Button save;
 
+    public static final ObservableList<Priorities> dataObeservable =
+            FXCollections.observableArrayList();
+
     public File datei = new File("priorities.csv");
+
+    public static String getValueString(int valueInt){
+        return dataObeservable.get(valueInt - 1).valueSTRING;
+    }
 
     public void initialize() {
         priorityListView.setItems(Priorities.loadFile(datei));

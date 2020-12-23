@@ -22,10 +22,18 @@ public class Stati_Controller {
     public Button cancelStati;
     public ListView<Status> listViewStati;
 
+    public static final ObservableList<Status> dataObeservable =
+            FXCollections.observableArrayList();
+
     public File datei = new File("stati.csv");
 
+    public static String getValueString(int valueInt){
+        return dataObeservable.get(valueInt - 1).valueSTRING;
+    }
+
     public void initialize() {
-        listViewStati.setItems(Status.loadFile(datei));
+        dataObeservable.setAll(Status.loadFile(datei));
+        listViewStati.setItems(dataObeservable);
 
     }
 

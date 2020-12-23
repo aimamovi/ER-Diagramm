@@ -13,7 +13,7 @@ public class Status {
     public int valueINT;
     public String valueSTRING = "";
 
-    public static final ObservableList<Status> dataObeservable =
+    private static final ObservableList<Status> dataObeservable =
             FXCollections.observableArrayList();
 
     @Override

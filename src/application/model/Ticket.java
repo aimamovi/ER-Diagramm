@@ -1,5 +1,7 @@
 package application.model;
 
+import application.controller.Priorities_Controller;
+import application.controller.Stati_Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,8 +16,8 @@ public class Ticket {
     public int valueINT;
     public String name = "";
     public String description = "";
-    public int status;
-    public int priority;
+    public Status status;
+    public Priorities priority;
 
     public static final ObservableList<Ticket> dataObeservable =
             FXCollections.observableArrayList();
@@ -41,8 +43,10 @@ public class Ticket {
                     b.valueINT = Integer.parseInt(data[0]);
                     b.name = data[1];
                     b.description = data[2];
-                    b.status = Integer.parseInt(data[3]);
-                    b.priority = Integer.parseInt(data[4]);
+                    b.status.valueINT = Integer.parseInt(data[3]); //smth passt ihm hier ned
+                    b.status.valueSTRING = Stati_Controller.getValueString(b.status.valueINT);
+                    b.priority.valueINT = Integer.parseInt(data[4]);
+                    b.priority.valueSTRING = Priorities_Controller.getValueString(b.priority.valueINT);
                     dataObeservable.add(b);
                 }
             } finally {

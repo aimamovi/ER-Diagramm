@@ -6,12 +6,15 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.net.URL;
+
 public class MyFXMLLoader {
 
     private static Stage primaryStage = null;
 
-    private Stage actualStage = null;
-    private Object controller = null;
+    public Stage actualStage = null;
+    public Object controller = null;
+    // die oberen 2 warn private
 
     public static void setPrimaryStage(Stage stage) {
         primaryStage = stage;
