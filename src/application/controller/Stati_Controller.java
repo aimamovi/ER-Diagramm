@@ -28,13 +28,13 @@ public class Stati_Controller {
     public File datei = new File("stati.csv");
 
     public static String getValueString(int valueInt){
-        dataObeservable.setAll(Status.loadFile(new File("stati.csv")));
+        dataObeservable.setAll(Status.loadList());
 
-        return dataObeservable.get(valueInt - 1).valueSTRING;
+        return dataObeservable.get(valueInt - 1).name;
     }
 
     public void initialize() {
-        dataObeservable.setAll(Status.loadFile(datei));
+        dataObeservable.setAll(Status.loadList());
         listViewStati.setItems(dataObeservable);
 
     }

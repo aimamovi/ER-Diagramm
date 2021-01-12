@@ -41,10 +41,10 @@ public class Ticket {
                     b.valueINT = Integer.parseInt(data[0]);
                     b.name = data[1];
                     b.description = data[2];
-                    b.status.valueINT = Integer.parseInt(data[3]);
-                    b.status.valueSTRING = Stati_Controller.getValueString(b.status.valueINT);
-                    b.priority.valueINT = Integer.parseInt(data[4]);
-                    b.priority.valueSTRING = Priorities_Controller.getValueString(b.priority.valueINT);
+                    b.status.id = Integer.parseInt(data[3]);
+                    b.status.name = Stati_Controller.getValueString(b.status.id);
+                    b.priority.id = Integer.parseInt(data[4]);
+                    b.priority.name = Priorities_Controller.getValueString(b.priority.id);
                     dataObeservable.add(b);
                 }
             } finally {
@@ -68,7 +68,7 @@ public class Ticket {
 
         while (i < dataObservableLo.size()) {
             text += dataObservableLo.get(i).valueINT + ";" + dataObservableLo.get(i).name + ";" +
-                    dataObservableLo.get(i).description + ";" + dataObservableLo.get(i).status.valueINT + ";" + dataObservableLo.get(i).priority.valueINT + "\n";
+                    dataObservableLo.get(i).description + ";" + dataObservableLo.get(i).status.id + ";" + dataObservableLo.get(i).priority.id + "\n";
             ++i;
         }
 

@@ -7,19 +7,65 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Status {
 
-    public int valueINT;
-    public String valueSTRING = "";
+    public int id;
+    public String name = "";
 
     private static final ObservableList<Status> dataObeservable =
             FXCollections.observableArrayList();
 
+    public Status(int status_id, String name) {
+        this.id = status_id;
+        this.name = name;
+    }
+
+    public Status() {
+    }
+
     @Override
     public String toString() {
-        return valueINT + " - " + valueSTRING;
+        return id + " - " + name;
     }
+
+
+    public static ObservableList<Status> loadList(){
+        ObservableList<Status> list = FXCollections.observableArrayList();
+
+        try {
+            Connection connection = AccessDb.getConncection();
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM stati");
+
+            while(result.next()){
+                Status p = new Status(result.getInt("status_id"), result.getString("name"));
+                list.add(p);
+            }
+        }catch (SQLException throwables){
+        }
+
+        return list;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static ObservableList<Status> loadFile(File datei) {
 
@@ -34,8 +80,8 @@ public class Status {
                     String[] data = row.split(";");
                     Status b = new Status();
 
-                    b.valueINT = Integer.parseInt(data[0]);
-                    b.valueSTRING = data[1];
+                    b.id = Integer.parseInt(data[0]);
+                    b.name = data[1];
                     dataObeservable.add(b);
                 }
             } finally {
