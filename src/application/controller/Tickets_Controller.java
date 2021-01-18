@@ -28,7 +28,7 @@ public class Tickets_Controller {
 
 
     public void initialize() {
-        dataObeservable = Ticket.loadFile(datei);
+        dataObeservable = Ticket.loadList();
     }
 
     public void saveTicket(ActionEvent actionEvent) {

@@ -59,14 +59,6 @@ public class Status {
 
 
 
-
-
-
-
-
-
-
-
     public static ObservableList<Status> loadFile(File datei) {
 
         dataObeservable.clear();

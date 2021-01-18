@@ -7,23 +7,63 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Ticket {
 
 
-    public int valueINT;
+    public int id;
     public String name = "";
     public String description = "";
-    public Status status = new Status();
     public Priorities priority = new Priorities();
+    public Status status = new Status();
 
     public static ObservableList<Ticket> dataObeservable =
             FXCollections.observableArrayList();
 
+
+    public Ticket() {
+    }
+
+    public Ticket(int ticket_id, String name, String desc, int priority_id, int status_id, int order_id) {
+        this.id = ticket_id;
+        this.name = name;
+        this.description = desc;
+        this.priority.id = priority_id;
+        this.priority.name = Priorities_Controller.getValueString(priority_id);
+        this.status.id = status_id;
+        this.status.name = Stati_Controller.getValueString(status_id);
+
+    }
+
     @Override
     public String toString() {
-        return valueINT + " - " + name;
+        return id + " - " + name;
     }
+
+    public static ObservableList<Ticket> loadList() {
+        ObservableList<Ticket> list = FXCollections.observableArrayList();
+
+        try {
+            Connection connection = AccessDb.getConncection();
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM tickets");
+
+            while (result.next()) {
+                Ticket p = new Ticket(result.getInt("ticket_id"), result.getString("name"), result.getString("desc"), result.getInt("priority_id"), result.getInt("Status_id"), result.getInt("order_id"));
+                list.add(p);
+            }
+        } catch (SQLException throwables) {
+        }
+
+        return list;
+    }
+
 
     public static ObservableList<Ticket> loadFile(File datei) {
 
@@ -38,7 +78,7 @@ public class Ticket {
                     String[] data = row.split(";");
                     Ticket b = new Ticket();
 
-                    b.valueINT = Integer.parseInt(data[0]);
+                    b.id = Integer.parseInt(data[0]);
                     b.name = data[1];
                     b.description = data[2];
                     b.status.id = Integer.parseInt(data[3]);
@@ -67,7 +107,7 @@ public class Ticket {
         String text = "";
 
         while (i < dataObservableLo.size()) {
-            text += dataObservableLo.get(i).valueINT + ";" + dataObservableLo.get(i).name + ";" +
+            text += dataObservableLo.get(i).id + ";" + dataObservableLo.get(i).name + ";" +
                     dataObservableLo.get(i).description + ";" + dataObservableLo.get(i).status.id + ";" + dataObservableLo.get(i).priority.id + "\n";
             ++i;
         }

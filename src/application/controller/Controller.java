@@ -48,7 +48,7 @@ public class Controller {
     }
 
     public void initialize() {
-        Tickets_Controller.dataObeservable = Ticket.loadFile(ticketdatei);
+        Tickets_Controller.dataObeservable = Ticket.loadList();
         ticketListView.setItems(Tickets_Controller.dataObeservable);
     }
 
@@ -56,7 +56,7 @@ public class Controller {
     public void ticket_listViewClicked(MouseEvent mouseEvent) {
 
         selected = ticketListView.getSelectionModel().getSelectedItem();
-        System.out.println("TEST: du hast auf " + selected.valueINT + " - " + selected.name + " geclickt");
+        System.out.println("TEST: du hast auf " + selected.id + " - " + selected.name + " geclickt");
 
         MyFXMLLoader loader = new MyFXMLLoader();
         Parent root = loader.loadFXML("view/tickets.fxml");
@@ -114,12 +114,12 @@ public class Controller {
         }
 
         if (newTicket == true) {
-            mTicket.valueINT = Tickets_Controller.dataObeservable.get((Tickets_Controller.dataObeservable.size() - 1)).valueINT + 1;
+            mTicket.id = Tickets_Controller.dataObeservable.get((Tickets_Controller.dataObeservable.size() - 1)).id + 1;
             Tickets_Controller.dataObeservable.add(mTicket);
             newTicket = false;
         } else {
-            mTicket.valueINT = selected.valueINT;
-            Tickets_Controller.dataObeservable.set(mTicket.valueINT - 1, mTicket);
+            mTicket.id = selected.id;
+            Tickets_Controller.dataObeservable.set(mTicket.id - 1, mTicket);
         }
         Ticket.saveTicketsToFile(ticketdatei, Tickets_Controller.dataObeservable);
 

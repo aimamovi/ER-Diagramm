@@ -29,13 +29,13 @@ public class Departments_Controller {
             FXCollections.observableArrayList();
 
     public static String getValueString(int valueInt) {
-        dataObeservable.setAll(Department.loadFile(new File("departments.csv")));
+        dataObeservable.setAll(Department.loadList());
 
-        return dataObeservable.get(valueInt - 1).valueSTRING;
+        return dataObeservable.get(valueInt - 1).name;
     }
 
     public void initialize() {
-        dataObeservable = Department.loadFile(datei);
+        dataObeservable = Department.loadList();
         listViewDepartments.setItems(dataObeservable);
     }
 

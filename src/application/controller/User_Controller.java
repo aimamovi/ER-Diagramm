@@ -42,7 +42,10 @@ public class User_Controller {
 
 
     public void initialize() {
-        listViewUser.setItems(User.loadFile(datei));
+        dataObeservable.setAll(User.loadList());
+
+        listViewUser.setItems(dataObeservable);
+
     }
 
     public void saveClicked(ActionEvent actionEvent) {
@@ -56,7 +59,7 @@ public class User_Controller {
     public void user_listView_clicked(MouseEvent mouseEvent) {
 
         selected = listViewUser.getSelectionModel().getSelectedItem();
-        System.out.println("TEST: du hast auf " + selected.valueINT + " - " + selected.name + " geclickt");
+        System.out.println("TEST: du hast auf " + selected.id + " - " + selected.name + " geclickt");
         abteilungComboBox.setItems(Department.dataObeservable);
         abteilungComboBox.setValue(selected.abteilung);
 
