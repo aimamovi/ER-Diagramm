@@ -21,8 +21,7 @@ public class AccessDb {
     public static Connection getConncection(){
         if(conncection == null){
             try {
-                //@todo ned todo aber immer wenn aldin was ändert muss er diesen pfad ändern glaub ich
-                conncection = DriverManager.getConnection("jdbc:ucanaccess://F:/HTL/ITP 2021/ER-Diagramm/db/ticketsystem.accdb");
+                conncection = DriverManager.getConnection("jdbc:ucanaccess://db/ticketsystem.accdb");
             } catch (SQLException throwables) {
             }
         }
