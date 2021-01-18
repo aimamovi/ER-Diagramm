@@ -58,6 +58,7 @@ public class User {
             statement = connection.createStatement();
             ResultSet result = statement.executeQuery("SELECT * FROM users");
 
+            //@todo es tut iwie ned die user rauslesen ka warum
             while (result.next() == true) {
                 User p = new User(result.getInt("user_id"), result.getString("name"), result.getString("titel"), result.getString("Street"), result.getInt("zip"), result.getString("city"), result.getString("country"), result.getInt("department"));
                 list.add(p);
