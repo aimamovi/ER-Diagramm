@@ -27,12 +27,12 @@ public class User {
     public static final ObservableList<User> dataObeservable =
             FXCollections.observableArrayList();
 
-    public User(int user_id, String name, String titel, String street, int zip, String city, String country, int department) {
+    public User(int user_id, String name, String titel, String street, String zip, String city, String country, int department) {
         this.id = user_id;
         this.name = name;
         this.titel = titel;
         this.strase = street;
-        this.plz = zip;
+        this.plz = Integer.parseInt(zip);
         this.ort = city;
         this.land = country;
         this.abteilung.id = department;
@@ -60,10 +60,11 @@ public class User {
 
             //@todo es tut iwie ned die user rauslesen ka warum
             while (result.next() == true) {
-                User p = new User(result.getInt("user_id"), result.getString("name"), result.getString("titel"), result.getString("Street"), result.getInt("zip"), result.getString("city"), result.getString("country"), result.getInt("department"));
+                User p = new User(result.getInt("user_id"), result.getString("name"), result.getString("titel"), result.getString("Street"), result.getString("zip"), result.getString("city"), result.getString("country"), result.getInt("department"));
                 list.add(p);
             }
         } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
 
         return list;
