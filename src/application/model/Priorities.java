@@ -26,12 +26,27 @@ public class Priorities {
     }
 
     public Priorities() {
+
     }
 
 
     @Override
     public String toString() {
         return id + " - " + name;
+    }
+
+    public void delete() {
+
+        try {
+            Connection connection = AccessDb.getConncection();
+
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            statement.executeUpdate("DELETE FROM priorities WHERE priority_id = " + id);
+
+        } catch (SQLException throwables) {
+        }
     }
 
     public static ObservableList<Priorities> loadList(){
@@ -53,14 +68,6 @@ public class Priorities {
 
         return list;
     }
-
-
-
-
-
-
-
-
 
     public static ObservableList<Priorities> loadFile(File datei) {
 

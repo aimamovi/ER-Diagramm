@@ -70,6 +70,19 @@ public class User {
         return list;
     }
 
+    public void delete() {
+
+        try {
+            Connection connection = AccessDb.getConncection();
+
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            statement.executeUpdate("DELETE FROM users WHERE user_id = " + id);
+
+        } catch (SQLException throwables) {
+        }
+    }
 
     public static ObservableList<User> loadFile(File datei) {
 

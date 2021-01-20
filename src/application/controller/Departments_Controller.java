@@ -22,6 +22,9 @@ public class Departments_Controller {
     public Button save;
     public Button cancel;
     public ListView<Department> listViewDepartments;
+    public Button delete;
+    public Button neu;
+    public TextField nameTextField;
 
     public File datei = new File("departments.csv");
 
@@ -46,5 +49,17 @@ public class Departments_Controller {
     public void cancelButtonClicked(ActionEvent actionEvent) {
         Stage stage = (Stage) cancel.getScene().getWindow();
         stage.close();
+    }
+
+    public void deleteClicked(ActionEvent actionEvent) {
+        Department selectedDepartment = (Department) listViewDepartments.getSelectionModel().getSelectedItem();
+
+        nameTextField.clear();
+        listViewDepartments.getItems().remove(selectedDepartment);
+
+        selectedDepartment.delete();
+    }
+
+    public void newClicked(ActionEvent actionEvent) {
     }
 }

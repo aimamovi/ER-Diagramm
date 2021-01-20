@@ -21,6 +21,9 @@ public class Stati_Controller {
     public Button saveStati;
     public Button cancelStati;
     public ListView<Status> listViewStati;
+    public Button delete;
+    public Button neu;
+    public TextField nameTextField;
 
     public static final ObservableList<Status> dataObeservable =
             FXCollections.observableArrayList();
@@ -46,5 +49,17 @@ public class Stati_Controller {
     public void cancelButtonClicked(ActionEvent actionEvent) {
         Stage stage = (Stage) cancelStati.getScene().getWindow();
         stage.close();
+    }
+
+    public void newClicked(ActionEvent actionEvent) {
+    }
+
+    public void deleteClicked(ActionEvent actionEvent) {
+        Status selectedStatus = (Status) listViewStati.getSelectionModel().getSelectedItem();
+
+        nameTextField.clear();
+        listViewStati.getItems().remove(selectedStatus);
+
+        selectedStatus.delete();
     }
 }

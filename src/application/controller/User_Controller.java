@@ -38,6 +38,8 @@ public class User_Controller {
     public TextField ortTxtField;
     public TextField countryTxtField;
     public TextField nameTxtField;
+    public Button neu;
+    public Button delete;
     User selected;
 
 
@@ -70,5 +72,17 @@ public class User_Controller {
         ortTxtField.setText(selected.ort);
         //countryTxtField.setText();    land gibts nu ned bruuh
 
+    }
+
+    public void newClicked(ActionEvent actionEvent) {
+    }
+
+    public void deleteClicked(ActionEvent actionEvent) {
+        User selectedUser = (User) listViewUser.getSelectionModel().getSelectedItem();
+
+        nameTxtField.clear();
+        listViewUser.getItems().remove(selectedUser);
+
+        selectedUser.delete();
     }
 }

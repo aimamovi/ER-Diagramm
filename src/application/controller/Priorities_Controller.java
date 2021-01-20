@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -19,11 +20,16 @@ public class Priorities_Controller {
     public ListView<Priorities> priorityListView;
     public Button cancel;
     public Button save;
+    public Button delete;
+    public Button neu;
+    public TextField nameTextField;
 
     public static final ObservableList<Priorities> dataObeservable =
             FXCollections.observableArrayList();
 
     public File datei = new File("priorities.csv");
+
+
 
     public static String getValueString(int valueInt){
         dataObeservable.setAll(Priorities.loadList());
@@ -41,5 +47,20 @@ public class Priorities_Controller {
     }
 
     public void saveButtonClicked(ActionEvent actionEvent) {
+    }
+
+    public void newClicked(ActionEvent actionEvent) {
+        nameTextField.clear();
+
+        //selectedPriority = null; haben wir noch nicht gemacht
+    }
+
+    public void deleteClicked(ActionEvent actionEvent) {
+        Priorities selectedPriority = (Priorities) priorityListView.getSelectionModel().getSelectedItem();
+
+        nameTextField.clear();
+        priorityListView.getItems().remove(selectedPriority);
+
+        selectedPriority.delete();
     }
 }

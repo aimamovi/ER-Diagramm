@@ -53,6 +53,20 @@ public class Department {
         return list;
     }
 
+    public void delete() {
+
+        try {
+            Connection connection = AccessDb.getConncection();
+
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            statement.executeUpdate("DELETE FROM Departments WHERE department_id = " + id);
+
+        } catch (SQLException throwables) {
+        }
+    }
+
 
     public static ObservableList<Department> loadFile(File datei) {
 
