@@ -1,0 +1,13 @@
+Infos:
+Hmmm yes defenitiv eine sinnvolle info
+
+---------------------------------------------------------
+Bugs:
+
+@todo in User.java
+Es tut iwie ned die user rauslesen ka warum???
+
+---------------------------------------------------------
+Noch zu machen:
+
+Filtern/Sortieren von Artikeln
