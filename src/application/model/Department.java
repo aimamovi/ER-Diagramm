@@ -33,6 +33,23 @@ public class Department {
         return id + " - " + name;
     }
 
+    public static Department getById(int id){
+        Department obj = null;
+        try {
+            Connection connection = AccessDb.getConncection();
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM Departments WHERE id =" + id);
+
+            while (result.next() == true) {
+                obj = new Department(result.getInt("department_id"), result.getString("name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
     public static ObservableList<Department> loadList(){
         ObservableList<Department> list = FXCollections.observableArrayList();
 

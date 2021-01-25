@@ -27,7 +27,7 @@ public class User {
     public static final ObservableList<User> dataObeservable =
             FXCollections.observableArrayList();
 
-    public User(int user_id, String name, String titel, String street, String zip, String city, String country, int department) {
+    public User(int user_id, String name, String titel, String street, String zip, String city, String country, int department, int department_id) {
         this.id = user_id;
         this.name = name;
         this.titel = titel;
@@ -37,6 +37,7 @@ public class User {
         this.land = country;
         this.abteilung.id = department;
         this.abteilung.name = Departments_Controller.getValueString(department);
+        this.department = Department.getById(department_id);
 
     }
 

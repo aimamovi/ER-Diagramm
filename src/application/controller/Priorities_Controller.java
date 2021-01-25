@@ -30,8 +30,7 @@ public class Priorities_Controller {
     public File datei = new File("priorities.csv");
 
 
-
-    public static String getValueString(int valueInt){
+    public static String getValueString(int valueInt) {
         dataObeservable.setAll(Priorities.loadList());
         return dataObeservable.get(valueInt - 1).name;
     }
@@ -49,13 +48,13 @@ public class Priorities_Controller {
     public void saveButtonClicked(ActionEvent actionEvent) {
         Priorities selectedPriority = (Priorities) priorityListView.getSelectionModel().getSelectedItem();
 
-        if(selectedPriority != null){
+        if (selectedPriority != null) {
             selectedPriority.name = nameTextField.getText();
             priorityListView.refresh();
 
             selectedPriority.update(); //aktualisiren in datenbank
-        }else{
-            if(!nameTextField.getText().isEmpty()){
+        } else{
+            if (!nameTextField.getText().isEmpty()) {
                 //Priorities s = new Priorities(count, nameTextField.getText());
             }
         }
