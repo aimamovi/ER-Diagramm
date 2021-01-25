@@ -70,7 +70,7 @@ public class User_Controller {
         streetTxtField.setText(selected.strase);
         plzTxtField.setText(String.valueOf(selected.plz));
         ortTxtField.setText(selected.ort);
-        //countryTxtField.setText();    land gibts nu ned bruuh
+        countryTxtField.setText(selected.land);
 
     }
 

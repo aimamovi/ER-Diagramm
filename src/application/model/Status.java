@@ -34,6 +34,24 @@ public class Status {
     }
 
 
+    public static Status getById(int id){
+        Status obj = null;
+        try {
+            Connection connection = AccessDb.getConncection();
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM stati WHERE status_id =" + id);
+
+            while (result.next() == true) {
+                obj = new Status(result.getInt("status_id"), result.getString("name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return obj;
+    }
+
     public static ObservableList<Status> loadList(){
         ObservableList<Status> list = FXCollections.observableArrayList();
 

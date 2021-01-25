@@ -26,6 +26,25 @@ public class Priorities {
 
     }
 
+    public static Priorities getById(int id){
+        Priorities obj = null;
+        try {
+            Connection connection = AccessDb.getConncection();
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM priorities WHERE priority_id =" + id);
+
+            while (result.next() == true) {
+                obj = new Priorities(result.getInt("priority_id"), result.getString("name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return obj;
+    }
+
+
     public void update() {
         try {
             Connection connection = AccessDb.getConncection();

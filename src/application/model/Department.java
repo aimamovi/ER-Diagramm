@@ -28,6 +28,7 @@ public class Department {
     public Department(){
     }
 
+
     @Override
     public String toString() {
         return id + " - " + name;
@@ -40,7 +41,7 @@ public class Department {
             Statement statement = null;
 
             statement = connection.createStatement();
-            ResultSet result = statement.executeQuery("SELECT * FROM Departments WHERE id =" + id);
+            ResultSet result = statement.executeQuery("SELECT * FROM Departments WHERE department_id =" + id);
 
             while (result.next() == true) {
                 obj = new Department(result.getInt("department_id"), result.getString("name"));
@@ -48,6 +49,7 @@ public class Department {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return obj;
     }
 
     public static ObservableList<Department> loadList(){

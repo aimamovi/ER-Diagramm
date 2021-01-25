@@ -32,10 +32,14 @@ public class Ticket {
         this.id = ticket_id;
         this.name = name;
         this.description = desc;
+        /*
         this.priority.id = priority_id;
         this.priority.name = Priorities_Controller.getValueString(priority_id);
         this.status.id = status_id;
         this.status.name = Stati_Controller.getValueString(status_id);
+        */
+        this.priority = Priorities.getById(priority_id);
+        this.status = Status.getById(status_id);
 
     }
 
@@ -43,6 +47,25 @@ public class Ticket {
     public String toString() {
         return id + " - " + name;
     }
+
+    public static Ticket getById(int id){
+        Ticket obj = null;
+        try {
+            Connection connection = AccessDb.getConncection();
+            Statement statement = null;
+
+            statement = connection.createStatement();
+            ResultSet result = statement.executeQuery("SELECT * FROM tickets WHERE ticket_id =" + id);
+
+            while (result.next() == true) {
+                obj = new Ticket(result.getInt("ticket_id"), result.getString("name"), result.getString("desc"), result.getInt("priority_id"), result.getInt("Status_id"), result.getInt("order_id"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return obj;
+    }
+
 
     public static ObservableList<Ticket> loadList() {
         ObservableList<Ticket> list = FXCollections.observableArrayList();

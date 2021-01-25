@@ -30,13 +30,13 @@ public class Departments_Controller {
 
     public static ObservableList<Department> dataObeservable =
             FXCollections.observableArrayList();
-
+/*
     public static String getValueString(int valueInt) {
         dataObeservable.setAll(Department.loadList());
 
         return dataObeservable.get(valueInt - 1).name;
     }
-
+*/
     public void initialize() {
         dataObeservable = Department.loadList();
         listViewDepartments.setItems(dataObeservable);

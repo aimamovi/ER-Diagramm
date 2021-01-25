@@ -27,7 +27,7 @@ public class User {
     public static final ObservableList<User> dataObeservable =
             FXCollections.observableArrayList();
 
-    public User(int user_id, String name, String titel, String street, String zip, String city, String country, int department, int department_id) {
+    public User(int user_id, String name, String titel, String street, String zip, String city, String country, int department_id) {
         this.id = user_id;
         this.name = name;
         this.titel = titel;
@@ -35,9 +35,11 @@ public class User {
         this.plz = Integer.parseInt(zip);
         this.ort = city;
         this.land = country;
+        /*
         this.abteilung.id = department;
         this.abteilung.name = Departments_Controller.getValueString(department);
-        this.department = Department.getById(department_id);
+         */
+        this.abteilung = Department.getById(department_id);
 
     }
 
@@ -61,7 +63,7 @@ public class User {
 
             //@todo es tut iwie ned die user rauslesen ka warum
             while (result.next() == true) {
-                User p = new User(result.getInt("user_id"), result.getString("name"), result.getString("titel"), result.getString("Street"), result.getString("zip"), result.getString("city"), result.getString("country"), result.getInt("department"));
+                User p = new User(result.getInt("user_id"), result.getString("name"), result.getString("titel"), result.getString("Street"), result.getString("zip"), result.getString("city"), result.getString("country"), result.getInt("department_id"));
                 list.add(p);
             }
         } catch (SQLException throwables) {
@@ -84,7 +86,7 @@ public class User {
         } catch (SQLException throwables) {
         }
     }
-
+/*
     public static ObservableList<User> loadFile(File datei) {
 
         dataObeservable.clear();
@@ -119,5 +121,5 @@ public class User {
         }
 
         return dataObeservable;
-    }
+    }*/
 }
