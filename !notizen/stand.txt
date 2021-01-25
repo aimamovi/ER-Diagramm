@@ -4,10 +4,10 @@ Hmmm yes defenitiv eine sinnvolle info
 ---------------------------------------------------------
 Bugs:
 
-@todo in User.java
-Es tut iwie ned die user rauslesen ka warum???
-
+keine lets goooooooooooooooo
 ---------------------------------------------------------
 Noch zu machen:
 
 Filtern/Sortieren von Artikeln
+
+und code aufräume weil es gibt alte, neue, etc. scheise
